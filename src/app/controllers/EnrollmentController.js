@@ -72,37 +72,39 @@ class EnrollmentController {
   }
 
   async update(req, res) {
-    const schema = Yup.object().shape({
-      plan_id: Yup.number()
-        .required()
-        .integer(),
-    });
+    // const schema = Yup.object().shape({
+    //   plan_id: Yup.number()
+    //     .required()
+    //     .integer(),
+    // });
 
-    if (!(await schema.isValid(req.body))) {
-      return res.status(400).json({ error: 'Validation fails' });
-    }
+    // if (!(await schema.isValid(req.body))) {
+    //   return res.status(400).json({ error: 'Validation fails' });
+    // }
 
-    const enrollment = await Enrollment.findByPk(req.params.id);
+    // const enrollment = await Enrollment.findByPk(req.params.id);
 
-    if (!enrollment) {
-      return res.status(401).json({ error: 'Enrollment not found' });
-    }
+    // if (!enrollment) {
+    //   return res.status(401).json({ error: 'Enrollment not found' });
+    // }
 
-    const {
-      id,
-      star_date,
-      end_date,
-      student_id,
-      plan_id,
-    } = await enrollment.update(req.body);
+    // const {
+    //   id,
+    //   star_date,
+    //   end_date,
+    //   student_id,
+    //   plan_id,
+    // } = await enrollment.update(req.body);
 
-    return res.json({
-      id,
-      star_date,
-      end_date,
-      student_id,
-      plan_id,
-    });
+    // return res.json({
+    //   id,
+    //   star_date,
+    //   end_date,
+    //   student_id,
+    //   plan_id,
+    // });
+
+    return res.json({ ok: true });
   }
 
   async delete(req, res) {
